@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BGB</title>
+  <link rel="stylesheet" href="pssthoy.css" />
+</head>
+<body>
+  <header>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="log.jpg" alt="Logo">
+      <span>Belmonte’s Graham Bar</span>
+    </div>
+
+    
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+  </header>
+
+
+ 
+  <section id="home" class="shome">
+    <div class="info">
+      <h2>Welcome to</h2>
+      <h1>Belmonte's Graham Bar</h1>
+      <p class="him">Craving something creamy, crunchy, and oh-so-satisfying? Dito sa Belmonte’s Graham Bar, we serve handcrafted Graham bars made with love and the finest ingredients. Perfect for dessert, pasalubong, o kahit pang-stress eating!</p>
+    </div>
+  </section>
+
+<section id="about" class="sabout">
+  <div class="about-container">
+    <h1>About Us</h1>
+    <h2>Hi! I'm <span class="highlight">Marites Belmonte</span>, the owner of <span class="highlight">Belmonte’s Graham Bar</span>.</h2>
+
+    <p class="story">
+      It all started with simple curiosity. One day, while scrolling through Facebook, I came across a tutorial on how to make graham bars. I decided to try it at home, and to my surprise, my family and friends loved it!
+    </p>
+
+    <p class="story">
+      That’s when the idea came to turn it into a small business. Not just for extra income, but to share something sweet and homemade with others. ❤️
+    </p>
+
+    <p class="story">
+      Every bite of our graham bar is made with love, care, and that comforting home-style sweetness you’ll always crave.
+    </p>
+  </div>
+</section>
+
+
+<section id="products" class="sproduct">
+  <h1 class="product-title">PRODUCTS</h1>
+  <div class="flex-container">
+
+    <div id="a"class="flex-item">
+      <img src="mango.jpg" class="imag">
+      <details>
+        <summary><h3><i>MANGO</i></h3></summary>
+        <p>Made with layers of fresh mangoes, graham crackers, and creamy milk a sweet, tropical classic!</p>
+        <p><b>Price:</b> ₱20 each</p>
+      </details>
+    </div>
+
+    <div id="b"class="flex-item">
+      <img src="cookies.jpg" class="imag">
+      <details>
+        <summary><h3><i>COOKIES N' CREAM</i></h3></summary>
+        <p>A creamy blend of crushed cookies and milk layered perfectly with graham and cream smooth, sweet, and satisfying.</p>
+        <p><b>Price:</b> ₱20 each</p>
+      </details>
+    </div>
+
+    <div id="c"class="flex-item">
+      <img src="milo.jpg" class="imag">
+      <details>
+        <summary><h3><i>MILO</i></h3></summary>
+        <p>Combines rich chocolate malt flavor with graham and cream the ultimate nostalgic treat!</p>
+        <p><b>Price:</b> ₱20 each</p>
+      </details>
+    </div>
+
+    <div id="d"class="flex-item">
+      <img src="ube.jpg" class="imag">
+      <details>
+        <summary><h3><i>UBE CHEESE</i></h3></summary>
+        <p>A Filipino favorite creamy ube and cheese flavors layered with graham and milk for a colorful delight.</p>
+        <p><b>Price:</b> ₱20 each</p>
+      </details>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact" class="scontact">
+  <h1>Contact Us</h1>
+  <p>We’d love to hear from you! Get in touch with us anytime.</p>
+
+  <div class="contact-info">
+    <p><b>📞 Contact No.:</b> 09926872882</p>
+    <p><b>🏠 Address:</b> Barangay 167, Llano, Caloocan City, Union Homes</p>
+    <p><b>📧 Gmail:</b> 
+      <a href="mailto:ruzzel.belmonte21@gmail.com">ruzzel.belmonte21@gmail.com</a>
+    </p>
+    <p><b>🕒 Open Hours:</b> Monday–Sunday | 10:00 AM – 5:00 PM</p>
+    <p><b>📱 Social Media:</b>
+      <a href="https://www.facebook.com/marites.belmonte.94" target="_blank" rel="noopener noreferrer">
+        Facebook
+      </a>
+    </p>
+  </div>
+</section>
+
+ <footer class="footer">
+  <p>© 2025 All Rights Reserved | James Iverson Ruiz & Ruzzel Belmonte</p>
+</footer>
+
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links a");
+  const toggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-links");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100; 
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  
+  toggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      // highlight clicked link
+      navLinks.forEach((l) => l.classList.remove("active"));
+      link.classList.add("active");
+
+      
+      navMenu.classList.remove("show");
+    });
+  });
+</script>
+
+
+
+
+
+
+</body>
+</html>
